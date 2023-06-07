@@ -1,4 +1,5 @@
 import './App.css';
+import PricingComponent from './component/PricingComponent';
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
         <h1 >Simple, traffic-based pricing</h1>
         <p>Sign-up for our 30-day trial. No credit card required.</p>
       </div>
+
+      <PricingComponent/>
 
 
     </div>
