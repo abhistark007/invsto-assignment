@@ -4,7 +4,8 @@ import tickSVG from './icon-check.svg';
 import Switch from "react-switch";
 
 
-function PricingComponent() {
+
+function PricingComponent({theme}) {
   const [value, setValue] = useState(1);
   const [index, setIndex] = useState(0);
   const [check,setCheck]=useState(false);
@@ -36,11 +37,13 @@ function PricingComponent() {
   // - 100K pageviews / $16 per month
   // - 500k pageviews / $24 per month
   // - 1M pageviews / $36 per month
+  console.log(theme);
   const prices = ["10K PAGEVIEWS", "50K PAGEVIEWS", "100K PAGEVIEWS", "500K PAGEVIEWS", "1M PAGEVIEWS"];
   const money = ["$8.00", "$12.00", "$16.00", "$24.00", "$36.00"];
   return (
-    <div className='pricingComponent'>
-      {/* Top Component */}
+    <div className={`head `}>
+      <div className={`pricingComponent ${theme} `}>
+        {/* Top Component */}
       <div className="pricingComponent__top">
         <p>{prices[index]}</p>
 
@@ -80,6 +83,42 @@ function PricingComponent() {
 
         <button className="pricingComponent__bottom__right">Start my trial</button>
       </div>
+      </div>
+
+
+      {/* mediaQuery max-Width:620px ==========================================*/}
+      <div className={`phase2 ${theme}`}>
+      <p className='phase2__price'>{prices[index]}</p>
+      <div class="slidecontainer">
+          <input type="range" min={1} max={100} step={1} value={value} className="slider" id="myRange" onChange={handleChange} style={{ backgroundSize: `${(value * 100) / 100}% 100%` }} />
+      </div>
+      <div className='pricingComponent__top__price'>
+          <p>{money[index]}</p>
+          <p> / {check?"year":"month"}</p>
+      </div>
+      <div className="billing">
+          <p className='billing__month'>Monthly billing</p>
+          <Switch checkedIcon={false} onChange={()=>setCheck(n=>!n)} checked={check} uncheckedIcon={false} onColor={"#a5f3eb"} 
+          offColor={"#eaeefb"} handleDiameter={20}/>
+          <p className='billing__year'>Yearly billing</p>
+          <p className='billing__discount'>25% discount</p>
+      </div>
+      <hr style={{width:"100%",height:"3px",color:"#eaeefb"}}/>
+      <div className="pricingComponent__bottom">
+        <div className="pricingComponent__bottom__left">
+          <div>
+            <li><img src={tickSVG} height={"20px"} alt='tick' /> Unlimited Websites</li>
+            <li><img src={tickSVG} height={"20px"} alt='tick' /> 100% data ownership</li>
+            <li><img src={tickSVG} height={"20px"} alt='tick' /> Email reports</li>
+          </div>
+        </div>
+
+
+        <button className="pricingComponent__bottom__right">Start my trial</button>
+      </div>
+
+      </div>
+
 
     </div>
   )

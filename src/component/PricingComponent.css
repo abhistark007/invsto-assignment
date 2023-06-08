@@ -1,7 +1,7 @@
 .pricingComponent{
-    width: 40vw;
-    min-height: 50vh;
-    background-color: var(--white);
+    width: 600px;
+    min-height: 400px;
+    /* background-color: var(--white); */
     z-index: 10;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     border-radius: 10px;
@@ -13,6 +13,78 @@
     padding-bottom: 25px;
     justify-content: space-between;
 }
+.dark{
+  background-color: black;
+  
+}
+.head{
+    z-index: 10;
+    width: 600px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    border-radius: 10px;
+    
+}
+.phase2{
+    display: none;
+}
+@media only screen and (max-width: 620px) {
+    /* .pricingComponent {
+      width: 90%;
+    } */
+    .head{
+        width: 90%;
+    }
+    .pricingComponent{
+        display: none;
+    }
+    .phase2{
+        padding-top: 25px;
+        padding-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        width: 100% ;
+        /* background-color: rebeccapurple; */
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    }
+    .phase2__price{
+        font-family: var(--manrope);
+        color: var(--grayishBlue);
+        letter-spacing: 2px;
+        font-weight: 800;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    .slidecontainer{
+        width: 90% !important;
+    }    
+    .pricingComponent__bottom{
+        /* border-top: 3px solid var(--lightGrayishBlue); */
+        width: 100%;
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+        
+    }
+    .pricingComponent__bottom__right{
+        /* width: 300px !important; */
+
+    }
+    .pricingComponent__bottom__left > div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+  }
 
 .pricingComponent__top{
     display: flex;
